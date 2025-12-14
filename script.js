@@ -1,124 +1,185 @@
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = document.getElementById("theme-icon");
+const htmlElement = document.documentElement;
 const menuIcon = document.getElementById("menu-icon");
 const menuCrossIcon = document.getElementById("menu-crossicon");
-const nav = document.getElementById("navbar");
-menuIcon.addEventListener("click", () => {
-  nav.classList.add("show-navbar");
+const navbar = document.getElementById("navbar");
+const navLinks = document.querySelectorAll("#navbar a:not(.coffee-btn)");
+const contactForm = document.getElementById("contactform");
+
+function initTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const systemPrefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  const theme = savedTheme || (systemPrefersDark ? "dark" : "light");
+
+  setTheme(theme);
+}
+
+/**
+ * Set the theme and update UI
+ * @param {string} theme - "light" or "dark"
+ */
+function setTheme(theme) {
+  htmlElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+
+  // Update icon
+  if (theme === "dark") {
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
+  } else {
+    themeIcon.classList.remove("fa-sun");
+    themeIcon.classList.add("fa-moon");
+  }
+}
+
+/**
+ * Toggle between light and dark themes
+ */
+function toggleTheme() {
+  const currentTheme = htmlElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+  setTheme(newTheme);
+}
+
+// Theme toggle event listener
+themeToggle.addEventListener("click", toggleTheme);
+
+// Listen for system theme changes
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme")) {
+      setTheme(e.matches ? "dark" : "light");
+    }
+  });
+
+// Open the mobile navigation menu
+
+function openMenu() {
+  navbar.classList.add("show-navbar");
   menuIcon.style.display = "none";
   menuCrossIcon.style.display = "block";
-});
+  document.body.style.overflow = "hidden"; // Prevent background scroll
+}
 
-menuCrossIcon.addEventListener("click", () => {
-  nav.classList.remove("show-navbar");
+/**
+ * Close the mobile navigation menu
+ */
+function closeMenu() {
+  navbar.classList.remove("show-navbar");
   menuIcon.style.display = "block";
   menuCrossIcon.style.display = "none";
-});
+  document.body.style.overflow = ""; // Restore scroll
+}
 
-const navLinks = document.querySelectorAll("#navbar a");
+// Menu toggle event listeners
+menuIcon.addEventListener("click", openMenu);
+menuCrossIcon.addEventListener("click", closeMenu);
+
+// Close menu when clicking a navigation link
 navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("show-navbar");
-    menuIcon.style.display = "block";
-    menuCrossIcon.style.display = "none";
-  });
+  link.addEventListener("click", closeMenu);
 });
 
-const form = document.getElementById("contactform");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const formData = new FormData(form);
-
-  const response = await fetch(form.action, {
-    method: form.method,
-    body: formData,
-    headers: { Accept: "application/json" },
-  });
-
-  if (response.ok) {
-    document.getElementById("contact").innerHTML =
-      "Thank you, we've received your message and will be in touch with you soon!";
-  } else {
-    document.getElementById("contact").innerHTML =
-      "An error occurred while processing your request. Please try again.";
+// Close menu when clicking outside
+document.addEventListener("click", (e) => {
+  if (
+    navbar.classList.contains("show-navbar") &&
+    !navbar.contains(e.target) &&
+    !menuIcon.contains(e.target) &&
+    !menuCrossIcon.contains(e.target)
+  ) {
+    closeMenu();
   }
 });
 
-// const menuIcon = document.getElementById("menu-icon");
-// const navbar = document.getElementById("navbar");
+// Close menu on escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && navbar.classList.contains("show-navbar")) {
+    closeMenu();
+  }
+});
 
-// menuIcon.addEventListener("click", () => {
-//   navbar.classList.toggle("active");
-// });
+// Reset menu state on window resize
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1024) {
+    navbar.classList.remove("show-navbar");
+    menuIcon.style.display = "";
+    menuCrossIcon.style.display = "";
+    document.body.style.overflow = "";
+  }
+});
 
-// const formId = process.env.FORMSPREE_FORM_ID;
-// const formActionUrl = `https://formspree.io/f/${formId}`;
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-// const lightbtn = document.getElementById("light-button");
-// const darkbtn = document.getElementById("dark-button");
-// const navb = document.getElementById("navarea");
-// const linking1 = document.getElementById("link1");
-// const linking2 = document.getElementById("link2");
-// const linking3 = document.getElementById("link3");
-// const linking4 = document.getElementById("link4");
-// const linking5 = document.getElementById("link5");
-// const homee = document.getElementById("home");
-// const aboutt = document.getElementById("about");
-// const skillss = document.getElementById("skills");
-// const projects = document.getElementById("project");
-// const contacts = document.getElementById("contact");
-// const flex = document.getElementById("f1");
-// const flex2 = document.getElementById("f2");
-// const hello1 = document.getElementById("hello");
+  const submitButton = contactForm.querySelector("button[type='submit']");
+  const originalText = submitButton.textContent;
 
-// lightbtn.addEventListener("click", () => {
-//   document.body.style.backgroundColor = "pink";
-//   lightbtn.style.display = "none";
-//   darkbtn.style.display = "inline-block";
-//   navb.style.backgroundColor = "white";
-//   navb.style.color = "white";
-//   linking1.style.color = "white";
-//   linking2.style.color = "white";
-//   linking3.style.color = "white";
-//   linking4.style.color = "white";
-//   linking5.style.color = "white";
-//   homee.style.color = "white";
-//   aboutt.style.color = "white";
-//   skillss.style.color = "white";
-//   projects.style.color = "white";
-//   contacts.style.color = "white";
-//   flex.style.color = "white";
-//   hello1.style.color = "white";
-// });
+  // Show loading state
+  submitButton.textContent = "Sending...";
+  submitButton.disabled = true;
 
-// darkbtn.addEventListener("click", () => {
-//   document.body.style.backgroundColor = "#f4f4f4";
-//   darkbtn.style.display = "none";
-//   lightbtn.style.display = "inline-block";
-//   // navb.style.backgroundColor = "orange";
-//   navb.style.color = "black";
-//   linking1.style.color = "black";
-//   linking2.style.color = "black";
-//   linking3.style.color = "black";
-//   linking4.style.color = "black";
-//   linking5.style.color = "black";
-//   homee.style.color = "black";
-//   aboutt.style.color = "black";
-//   skillss.style.color = "black";
-//   projects.style.color = "#A1E887";
-//   contacts.style.color = "black";
-//   para.style.color = "black";
-//   hello1.style.color = "black";
-// });
+  try {
+    const formData = new FormData(contactForm);
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
 
-// darkbtn.style.display = "none";
+    if (response.ok) {
+      // Success - show thank you message
+      const contactSection = document.getElementById("contact");
+      contactSection.innerHTML = `
+        <div style="text-align: center; padding: 40px;">
+          <h1 style="font-size: 2rem; margin-bottom: 20px; color: var(--text-primary);">Thank You! 🎉</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto;">
+            Your message has been sent successfully. I'll get back to you as soon as possible!
+          </p>
+        </div>
+      `;
+    } else {
+      throw new Error("Form submission failed");
+    }
+  } catch (error) {
+    // Error - show error message
+    submitButton.textContent = "Error - Try Again";
+    submitButton.disabled = false;
 
-// window.addEventListener("scroll", function () {
-//   const nav = document.querySelector("nav");
-//   nav.classList.toggle("scrolled", window.scrollY > 0);
-// // });
-// const MenuIcon = document.getElementById("menu-icon");
-// const navbar = document.getElementById("navbar");
+    setTimeout(() => {
+      submitButton.textContent = originalText;
+    }, 3000);
+  }
+});
 
-// MenuIcon.addEventListener("click", () => {
-//   navbar.classList.toggle("active");
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
+
+  // Add smooth reveal for sections (optional enhancement)
+  const sections = document.querySelectorAll("section");
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => {
+    section.style.opacity = "1"; // Start visible
+    section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    sectionObserver.observe(section);
+  });
+});
