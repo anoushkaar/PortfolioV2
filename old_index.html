@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Anoushka - Web Developer specializing in creating visually appealing and highly functional websites. Portfolio showcasing projects in frontend, backend, and database development."
+    />
+    <meta
+      name="keywords"
+      content="web developer, portfolio, frontend, backend, database, javascript, html, css"
+    />
+    <meta name="author" content="Anoushka" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Anoushka | Web Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="Web Developer specializing in creating visually appealing and highly functional websites."
+    />
+    <meta property="og:type" content="website" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
+    <title>Anoushka | Web Developer Portfolio</title>
+    <link rel="stylesheet" href="maindes.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="navarea">
+      <span class="fa-solid fa-bars" id="menu-icon"></span>
+      <span class="fa-solid fa-xmark" id="menu-crossicon"></span>
+      <div class="logo">Anoushka</div>
+      <div class="navbar" id="navbar">
+        <a href="#home" id="link1">Home</a>
+        <a href="#about" id="link2">About</a>
+        <a href="#skills" id="link3">Skills</a>
+        <a href="#project" id="link4">Projects</a>
+        <a href="#contact" id="link5">Contact</a>
+        <div class="icon">
+          <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </button>
+          <a
+            href="https://buymeacoffee.com/anoushkar"
+            class="coffee-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Buy Me a Coffee
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="home" class="home">
+      <h2>Hey there, I am</h2>
+      <h1>Anoushka.</h1>
+      <p id="paragraph">
+        Coder with a Flair for Databases — Turning data into powerful solutions.
+        From crafting queries to optimizing performance, I thrive on building
+        smart, reliable back-end systems.
+      </p>
+      <div class="button-group">
+        <a href="anoushkasresume.pdf" class="download" download>Download CV</a>
+        <a href="#about" class="explore">Explore More →</a>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="about">
+      <h1 class="abt-text">About Me</h1>
+      <p>
+        As a web developer, I specialize in creating visually appealing and
+        highly functional websites. With strong attention to detail and a
+        passion for clean, efficient code, I build modern digital experiences
+        that leave an impact.
+      </p>
+      <div class="container">
+        <div>
+          <i class="fa-solid fa-palette"></i>
+          <h1>Efficient Development</h1>
+          <h3>
+            Efficient development driving smarter, scalable software solutions.
+          </h3>
+        </div>
+        <div>
+          <i class="fa-solid fa-font-awesome"></i>
+          <h1>Clean Code</h1>
+          <h3>
+            Writing maintainable and efficient code that follows best practices.
+          </h3>
+        </div>
+        <div>
+          <i class="fa-regular fa-lightbulb"></i>
+          <h1>Strategic Thinking</h1>
+          <h3>
+            Solving challenges with smart, structured, and creative approaches.
+          </h3>
+        </div>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <h1>My Skills</h1>
+      <div class="flex-container">
+        <div class="skillbox">
+          <i class="fas fa-code"></i>
+          <h2>Frontend Development</h2>
+          <p>HTML5, CSS3, JavaScript, Tailwind CSS</p>
+        </div>
+        <div class="skillbox">
+          <i class="fas fa-database"></i>
+          <h2>Backend Development</h2>
+          <p>Node.js, SQL, MongoDB</p>
+        </div>
+        <div class="skillbox">
+          <i class="fas fa-cogs"></i>
+          <h2>Other Programming Languages</h2>
+          <p>C#, C++, Python, Java, Kotlin</p>
+        </div>
+        <div class="skillbox">
+          <i class="fas fa-globe"></i>
+          <h2>Web Technologies</h2>
+          <p>RESTful APIs, GraphQL</p>
+        </div>
+        <div class="skillbox">
+          <i class="fas fa-desktop"></i>
+          <h2>DevOps</h2>
+          <p>Netlify, Git, GitHub Actions</p>
+        </div>
+        <div class="skillbox">
+          <i class="fas fa-chart-line"></i>
+          <h2>Analytics</h2>
+          <p>Data Visualization, Performance Optimization</p>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="project" class="project">
+      <h1>Featured Projects</h1>
+      <div class="flex-container2">
+        <div>
+          <img src="sky.jpg" alt="Authentication System" class="projectimage" />
+          <h2>Authentication System</h2>
+          <p>
+            Developed and deployed a secure authentication system using Node.js,
+            Prisma, and NeonDB via Sevalla, supporting user registration,
+            verification, and login with secure token management and API testing
+            using Postman.
+          </p>
+          <a
+            href="https://reflectify-mu60p.sevalla.app/login"
+            class="button-style"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Demo
+          </a>
+          <a
+            href="https://github.com/anoushkaar/Reflectify"
+            class="button-style"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </div>
+        <div>
+          <img src="otppic.jpg" alt="" class="projectimage" />
+          <h2>SwiftPay</h2>
+          <p>
+            SwiftPay is a secure digital payment application that allows users
+            to transfer money seamlessly to other users, built with MongoDB for
+            reliable data storage, Axios for efficient API communication, and
+            Zustand for scalable state management.
+          </p>
+          <a
+            href="https://anoushka-bgchanger.netlify.app/"
+            class="button-style"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Demo
+          </a>
+          <a
+            href="https://github.com/anoushkaar/SwiftPay"
+            class="button-style"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="flex-container3">
+        <div>
+          <img src="sky.jpg" alt="TODO App Project" class="projectimage" />
+          <h2>Password Generator</h2>
+          <p>
+            A password generator built using React and Tailwind CSS that allows
+            users to create secure passwords with customizable options and a
+            one-click copy-to-clipboard feature, enhanced with intuitive icons
+            for better usability.
+          </p>
+          <a
+            href="https://anoushka-bgchanger.netlify.app/"
+            class="button-style"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Demo
+          </a>
+          <a
+            href="https://github.com/anoushkaar/reactjs-project/tree/main/21-password-generator"
+            class="button-style"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </div>
+        <div>
+          <img
+            src="weather.jpg"
+            alt="Weather App Project"
+            class="projectimage"
+          />
+          <h2>Weather App</h2>
+          <p>
+            A weather app that fetches real-time weather data from an external
+            API based on user input and displays temperature, humidity, and
+            conditions dynamically.
+          </p>
+          <a
+            href="https://anouweatherapp.netlify.app/"
+            class="button-style"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live Demo
+          </a>
+          <a
+            href="https://github.com/anoushkaar/Weather-Application"
+            class="button-style"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h1>Get in Touch</h1>
+      <form
+        id="contactform"
+        action="https://formspree.io/f/mgvloggb"
+        method="POST"
+      >
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button id="button1" type="submit">Send Message</button>
+      </form>
+    </section>
+    <!-- Footer Section -->
+    <footer class="connect-container">
+      <div class="connect-box">
+        <div id="connect-heading">Let's Connect</div>
+        <div class="icon-row">
+          <a
+            href="https://github.com/anoushkaar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i>
+            <p>GitHub</p>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/anoushkaar/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-linkedin"></i>
+            <p>LinkedIn</p>
+          </a>
+          <a
+            href="https://x.com/hachinicoo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-twitter"></i>
+            <p>Twitter</p>
+          </a>
+          <a href="mailto:anoushkaraghuveeran@gmail.com">
+            <i class="fas fa-envelope"></i>
+            <p>Email</p>
+          </a>
+        </div>
+      </div>
+      <h3 id="hello">Crafted with ❤️ by Anoushka</h3>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
