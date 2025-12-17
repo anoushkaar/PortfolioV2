@@ -696,7 +696,7 @@ nav {
   padding: 10px 20px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--accent-color);
+  color: #ffffff;
   background: transparent;
   border: 2px solid var(--accent-color);
   border-radius: var(--radius-sm);
@@ -714,7 +714,7 @@ nav {
 }
 
 .button-style:first-of-type {
-  color: #3b82f6;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   border-color: #3b82f6;
 }
 
@@ -724,7 +724,7 @@ nav {
 }
 
 .button-style:last-of-type {
-  color: #8b5cf6;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   border-color: #8b5cf6;
 }
 
@@ -817,10 +817,10 @@ form button:hover,
 .connect-container {
   background: radial-gradient(
       circle at 20% 50%,
-      rgba(102, 126, 234, 0.2) 0%,
+      rgba(59, 130, 246, 0.15) 0%,
       transparent 60%
     ),
-    linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
   padding: 70px 24px 50px;
   text-align: center;
   position: relative;
@@ -830,10 +830,10 @@ form button:hover,
 [data-theme="dark"] .connect-container {
   background: radial-gradient(
       circle at 20% 50%,
-      rgba(120, 140, 255, 0.25) 0%,
+      rgba(59, 130, 246, 0.2) 0%,
       transparent 60%
     ),
-    linear-gradient(135deg, #555ab8 0%, #1a102a 100%);
+    linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
 }
 
 /* Subtle pattern overlay */
