@@ -16,8 +16,8 @@
   --footer-text-muted: rgba(255, 255, 255, 0.7);
 
   /* Accent for visual interest */
-  --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --accent-color: #667eea;
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --accent-color: #3b82f6;
 
   /* Shadows */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -710,7 +710,27 @@ nav {
   color: #ffffff;
   border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.button-style:first-of-type {
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.button-style:first-of-type:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.button-style:last-of-type {
+  color: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+.button-style:last-of-type:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
 }
 
 .contact {
