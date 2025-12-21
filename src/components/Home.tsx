@@ -1,86 +1,91 @@
-import { ArrowRight, Download, Sparkles } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import resume from "../assets/anoushkasresume.pdf";
 
 const Home: React.FC = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto text-center">
-        {/* Animated Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/20 rounded-full border border-purple-500/20 mb-8 animate-pulse">
-          <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-          <span className="text-sm font-medium text-purple-600 dark:text-purple-400">
-            Available for new opportunities
+      {/* Simple Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-[10%] w-72 h-72 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-[15%] w-80 h-80 bg-pink-500/10 dark:bg-pink-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative max-w-4xl mx-auto text-center z-10">
+        {/* Status Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 dark:bg-green-500/20 rounded-full border border-green-500/30 mb-6">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+          </span>
+          <span className="text-sm font-medium text-green-700 dark:text-green-400">
+            Available for opportunities
           </span>
         </div>
 
         {/* Main Heading */}
-        <h2 className="text-xl sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mb-4">
-          Hey there, I am
-        </h2>
+        <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-3">
+          Hey there, I'm
+        </p>
 
-        <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
-          Anoushka.
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
+          <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-blue-600 bg-clip-text text-transparent">
+            Anoushka.
+          </span>
         </h1>
 
+        {/* Role */}
+        <p className="text-base sm:text-lg font-medium text-purple-600 dark:text-purple-400 mb-6">
+          Full Stack Developer & Database Enthusiast
+        </p>
+
         {/* Description */}
-        <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-          Coder with a Flair for Databases — Turning data into powerful
-          solutions. From crafting queries to optimizing performance, I thrive
-          on building smart, reliable back-end systems.
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+          Crafting elegant solutions with a passion for databases — Turning
+          complex data into powerful, scalable applications. From crafting
+          queries to optimizing performance, I build smart, reliable systems.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-10">
           <a
             href={resume}
             download
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold hover:scale-105 transition-all shadow-lg hover:shadow-purple-500/50"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg shadow-purple-500/25"
           >
-            <Download className="w-5 h-5" />
-            Download CV
+            <Download className="w-4 h-4" />
+            Download Resume
           </a>
 
           <a
             href="#about"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-full font-semibold hover:scale-105 transition-all shadow-lg border border-gray-200 dark:border-gray-700"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-full font-medium border border-gray-200 dark:border-gray-700 hover:border-purple-500/50 transition-colors"
           >
-            Explore More
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            Explore My Work
+            <ArrowRight className="w-4 h-4" />
           </a>
         </div>
 
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-purple-500/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-pink-500/10 rounded-full blur-3xl animate-float-delayed"></div>
+        {/* Stats */}
+        <div className="flex flex-wrap justify-center gap-8">
+          {[
+            { number: "2+", label: "Years Experience" },
+            { number: "15+", label: "Projects Completed" },
+            { number: "100%", label: "Client Satisfaction" },
+          ].map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                {stat.number}
+              </div>
+              <div className="text-sm text-gray-500 dark:text-gray-400">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <style>{`
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-30px); }
-        }
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float-delayed 8s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 };
