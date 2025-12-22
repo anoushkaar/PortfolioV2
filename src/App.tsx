@@ -1,6 +1,6 @@
 import ComingSoon from "./pages/ComingSoon";
 
-const App = () => {
+const App: React.FC = () => {
   return <ComingSoon />;
 };
 

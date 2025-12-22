@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <a
               href="#home"
-              className="inline-block text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent"
+              className="inline-block text-2xl font-bold text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400"
             >
               Anoushka
             </a>
@@ -84,6 +84,17 @@ const Footer: React.FC = () => {
               <Coffee className="w-4 h-4" />
               Buy Me a Coffee
             </a>
+
+            {/* Availability Badge */}
+            <div className="flex items-center gap-2 mt-4">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+              </span>
+              <span className="text-sm text-green-700 dark:text-green-400">
+                Available for freelance work
+              </span>
+            </div>
           </div>
 
           {/* Quick Links */}
