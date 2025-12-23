@@ -169,4 +169,4 @@ This project is open source and available under the MIT License.
 
 - Portfolio: [https://anoushkar.ste](https://anoushkar.site)
 - GitHub: [https://github.com/anoushkaar](https://github.com/anoushkaar)
-- LinkedIn: [Anoushka](https://www.linkedin.com/in/anoushkaar)
+- LinkedIn: [https://www.linkedin.com/in/anoushkaar](https://www.linkedin.com/in/anoushkaar)
