@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router";
+import { Route, Routes } from "react-router";
 
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import StructuredData from "./components/StructuredData";
 import PageNotFound from "./pages/PageNotFound";
 
 const App: React.FC = () => {
@@ -48,28 +49,31 @@ const App: React.FC = () => {
   }
 
   return (
-    <Routes>
-      {/* MAIN PAGE */}
-      <Route
-        path="/"
-        element={
-          <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-            <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-            <main>
-              <Home />
-              <About />
-              <Skills />
-              <Projects />
-              <Contact />
-            </main>
-            <Footer />
-          </div>
-        }
-      />
+    <>
+      <StructuredData />
+      <Routes>
+        {/* MAIN PAGE */}
+        <Route
+          path="/"
+          element={
+            <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+              <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+              <main>
+                <Home />
+                <About />
+                <Skills />
+                <Projects />
+                <Contact />
+              </main>
+              <Footer />
+            </div>
+          }
+        />
 
-      {/* 404 PAGE */}
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+        {/* 404 PAGE */}
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </>
   );
 };
 
