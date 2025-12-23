@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
               href="https://buymeacoffee.com/anoushkar"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-full text-sm font-medium hover:scale-105 transition-transform"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-full text-sm font-medium hover:scale-105 transition-transform"
             >
               <Coffee className="w-4 h-4" />
               Buy Me a Coffee

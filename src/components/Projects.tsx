@@ -1,12 +1,13 @@
 import { ExternalLink, Github } from "lucide-react";
-import otp from "../assets/otppic.jpg";
-import sky from "../assets/sky.jpg";
-import weather from "../assets/weather.jpg";
+import auth from "../assets/authimg.png";
+import pwd from "../assets/pwdgenimg.png";
+import pay from "../assets/swiftpayimg.png";
+import weather from "../assets/weatherimg.png";
 
 const Projects: React.FC = () => {
   const projects = [
     {
-      image: sky,
+      image: auth,
       title: "Authentication System",
       description:
         "A secure authentication system with JWT tokens, email verification, and role-based access control.",
@@ -15,7 +16,7 @@ const Projects: React.FC = () => {
       github: "https://github.com/anoushkaar/Reflectify",
     },
     {
-      image: otp,
+      image: pay,
       title: "SwiftPay",
       description:
         "A digital payment app with seamless transactions, wallet management, and real-time notifications.",
@@ -24,12 +25,12 @@ const Projects: React.FC = () => {
       github: "https://github.com/anoushkaar/SwiftPay",
     },
     {
-      image: sky,
+      image: pwd,
       title: "Password Generator",
       description:
         "Password generator with customizable options, strength indicators, and copy functionality.",
       tags: ["React", "Tailwind", "JavaScript"],
-      link: "https://github.com/anoushkaar/reactjs-project/tree/main/21-password-generator",
+      link: "https://anoupwdgenerator.netlify.app",
       github:
         "https://github.com/anoushkaar/reactjs-project/tree/main/21-password-generator",
     },
@@ -39,7 +40,7 @@ const Projects: React.FC = () => {
       description:
         "Real-time weather app with 7-day forecasts, location detection, and multiple city support.",
       tags: ["API", "React", "TypeScript"],
-      link: "https://anouweatherapp.netlify.app/",
+      link: "https://anouweatherapp.netlify.app",
       github: "https://github.com/anoushkaar/Weather-Application",
     },
   ];

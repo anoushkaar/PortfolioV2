@@ -6,35 +6,21 @@ interface NavbarProps {
   toggleDarkMode: () => void;
 }
 
+const navLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#project", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+];
+
 const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-
-  const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#project", label: "Projects" },
-    { href: "#contact", label: "Contact" },
-  ];
+  const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-
-      // Update active section based on scroll position
-      const sections = navLinks.map((link) => link.href.slice(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
+      setIsAtTop(window.scrollY === 0);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -42,64 +28,76 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
   }, []);
 
   return (
-    <nav className="fixed w-full top-0 z-50 px-4 sm:px-6 lg:px-8 py-4">
+    <nav className="fixed top-4 left-0 right-0 z-50 px-4">
+      {/* Glass container */}
       <div
-        className={`max-w-4xl mx-auto px-4 sm:px-6 rounded-full transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/25 dark:bg-gray-900/25 backdrop-blur-2xl shadow-md border border-white/20 dark:border-gray-700/20"
-            : "bg-white/15 dark:bg-gray-900/15 backdrop-blur-xl"
+        className={`mx-auto max-w-4xl rounded-full border transition-all duration-300 ease-in-out
+        ${
+          isAtTop
+            ? "bg-white/20 dark:bg-neutral-900/20 backdrop-blur-xl border-white/10"
+            : "bg-white/40 dark:bg-neutral-900/40 backdrop-blur-2xl border-white/20 shadow-lg"
         }`}
       >
-        <div className="flex items-center justify-between h-14">
+        {/* RESIZING happens here */}
+        <div
+          className={`flex items-center justify-between transition-all duration-300 ease-in-out
+          ${isAtTop ? "h-14 px-6" : "h-11 px-4"}`}
+        >
           {/* Logo */}
           <a
             href="#home"
-            className="text-xl font-bold text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400"
+            className="text-lg font-semibold text-neutral-900 dark:text-white"
           >
             Anoushka
           </a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`px-3 py-1.5 text-sm font-medium rounded-full transition-all ${
-                  activeSection === link.href.slice(1)
-                    ? "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400"
-                    : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
-                }`}
+                className="px-3 py-1.5 rounded-full text-sm font-medium
+                           text-neutral-600 dark:text-neutral-300
+                           hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60
+                           hover:text-neutral-900 dark:hover:text-white
+                           transition"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* Right Side Actions */}
+          {/* Right actions */}
           <div className="hidden md:flex items-center">
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Toggle theme"
+              className="p-2 rounded-full text-neutral-600 dark:text-neutral-300
+                         hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60 transition"
             >
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile toggle */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            onClick={() => setIsMenuOpen((p) => !p)}
+            className="md:hidden p-2 rounded-full
+                       text-neutral-700 dark:text-neutral-300
+                       hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60"
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <div
-        className={`md:hidden absolute top-full left-4 right-4 mt-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl transition-all duration-300 overflow-hidden ${
+        className={`md:hidden mt-2 mx-4 rounded-2xl border
+        bg-white/70 dark:bg-neutral-900/70 backdrop-blur-xl
+        border-neutral-200 dark:border-neutral-800 shadow-lg
+        transition-all duration-300
+        ${
           isMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
@@ -111,19 +109,20 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
               key={link.href}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                activeSection === link.href.slice(1)
-                  ? "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-              }`}
+              className="block rounded-xl px-4 py-2 text-sm font-medium
+                         text-neutral-700 dark:text-neutral-300
+                         hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60"
             >
               {link.label}
             </a>
           ))}
-          <div className="pt-3 mt-3 border-t border-gray-200 dark:border-gray-700">
+
+          <div className="pt-3 mt-3 border-t border-neutral-200 dark:border-neutral-800">
             <button
               onClick={toggleDarkMode}
-              className="flex items-center gap-2 w-full px-4 py-2.5 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="flex w-full items-center gap-2 rounded-xl px-4 py-2
+                         text-sm font-medium text-neutral-700 dark:text-neutral-300
+                         hover:bg-neutral-200/60 dark:hover:bg-neutral-800/60"
             >
               {darkMode ? <Sun size={18} /> : <Moon size={18} />}
               {darkMode ? "Light Mode" : "Dark Mode"}
