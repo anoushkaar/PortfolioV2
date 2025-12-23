@@ -139,9 +139,9 @@ const Contact: React.FC = () => {
                   <input
                     type="hidden"
                     name="_subject"
-                    value="New Portfolio Contact"
+                    value="Portfolio Contact"
                   />
-                  <input type="hidden" name="_template" value="table" />
+                  {/* <input type="hidden" name="_template" value="table" /> */}
 
                   {/* Name */}
                   <div>
