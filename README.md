@@ -167,6 +167,6 @@ This project is open source and available under the MIT License.
 
 **Anoushka R**
 
-- Portfolio: [https://anoushkar.ste](https://anoushkar.site)
+- Portfolio: [https://anoushkar.site](https://anoushkar.site)
 - GitHub: [https://github.com/anoushkaar](https://github.com/anoushkaar)
 - LinkedIn: [https://www.linkedin.com/in/anoushkaar](https://www.linkedin.com/in/anoushkaar)
