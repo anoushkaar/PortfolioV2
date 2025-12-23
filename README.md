@@ -115,7 +115,7 @@ Before deploying, update the following:
 
 ### 1. Update URLs
 
-Replace `https://anoushka.dev` with your actual domain in:
+Replace `https://anoushkar.site` with your actual domain in:
 
 - `index.html` (meta tags, canonical URL)
 - `public/sitemap.xml` (all loc URLs)
@@ -167,6 +167,6 @@ This project is open source and available under the MIT License.
 
 **Anoushka R**
 
-- Portfolio: [https://anoushka.dev](https://anoushka.dev)
-- GitHub: [@anoushka](https://github.com/anoushka)
-- LinkedIn: [Anoushka R](https://linkedin.com/in/anoushka)
+- Portfolio: [https://anoushkar.ste](https://anoushkar.site)
+- GitHub: [https://github.com/anoushkaar](https://github.com/anoushkaar)
+- LinkedIn: [anoushkaar](https://www.linkedin.com/in/anoushkaar)
