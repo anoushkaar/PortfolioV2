@@ -1,13 +1,12 @@
 import { ExternalLink, Github } from "lucide-react";
-import auth from "../assets/authimg.png";
-import pwd from "../assets/pwdgenimg.png";
-import pay from "../assets/swiftpayimg.png";
-import weather from "../assets/weatherimg.png";
+
+const CLOUDINARY_BASE =
+  "https://res.cloudinary.com/dtdardvqm/image/upload/f_auto,q_auto,w_600";
 
 const Projects: React.FC = () => {
   const projects = [
     {
-      image: auth,
+      image: `${CLOUDINARY_BASE}/authimg_tvrvlg.png`,
       title: "Authentication System",
       description:
         "A secure authentication system with JWT tokens, email verification, and role-based access control.",
@@ -16,7 +15,7 @@ const Projects: React.FC = () => {
       github: "https://github.com/anoushkaar/Reflectify",
     },
     {
-      image: pay,
+      image: `${CLOUDINARY_BASE}/swiftpayimg_lrmjmz.png`,
       title: "SwiftPay",
       description:
         "A digital payment app with seamless transactions, wallet management, and real-time notifications.",
@@ -25,7 +24,7 @@ const Projects: React.FC = () => {
       github: "https://github.com/anoushkaar/SwiftPay",
     },
     {
-      image: pwd,
+      image: `${CLOUDINARY_BASE}/pwdgenimg_aafrbr.png`,
       title: "Password Generator",
       description:
         "Password generator with customizable options, strength indicators, and copy functionality.",
@@ -35,7 +34,7 @@ const Projects: React.FC = () => {
         "https://github.com/anoushkaar/reactjs-project/tree/main/21-password-generator",
     },
     {
-      image: weather,
+      image: `${CLOUDINARY_BASE}/weatherimg_r5l8vp.png`,
       title: "Weather App",
       description:
         "Real-time weather app with 7-day forecasts, location detection, and multiple city support.",
@@ -62,9 +61,11 @@ const Projects: React.FC = () => {
               Building Cool Stuff
             </span>
           </div>
+
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Featured Projects
           </h2>
+
           <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
             A showcase of my recent work and personal projects
           </p>
@@ -82,6 +83,7 @@ const Projects: React.FC = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
 
@@ -96,6 +98,7 @@ const Projects: React.FC = () => {
                     <ExternalLink className="w-4 h-4" />
                     Demo
                   </a>
+
                   <a
                     href={project.github}
                     target="_blank"
@@ -113,6 +116,7 @@ const Projects: React.FC = () => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                   {project.title}
                 </h3>
+
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
                   {project.description}
                 </p>
