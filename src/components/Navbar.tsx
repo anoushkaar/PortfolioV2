@@ -34,11 +34,11 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
         className={`mx-auto max-w-4xl rounded-full border transition-all duration-300 ease-in-out
         ${
           isAtTop
-            ? "bg-white/20 dark:bg-neutral-900/20 backdrop-blur-xl border-white/10"
-            : "bg-white/40 dark:bg-neutral-900/40 backdrop-blur-2xl border-white/20 shadow-lg"
+            ? "bg-white/20 dark:bg-neutral-900/20 backdrop-blur-xl border-neutral-300/40 dark:border-white/10"
+            : "bg-white/40 dark:bg-neutral-900/40 backdrop-blur-2xl border-neutral-300/50 dark:border-white/20 shadow-lg"
         }`}
       >
-        {/* RESIZING happens here */}
+        {/* Inner resizing container */}
         <div
           className={`flex items-center justify-between transition-all duration-300 ease-in-out
           ${isAtTop ? "h-14 px-6" : "h-11 px-4"}`}
@@ -95,7 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
       <div
         className={`md:hidden mt-2 mx-4 rounded-2xl border
         bg-white/70 dark:bg-neutral-900/70 backdrop-blur-xl
-        border-neutral-200 dark:border-neutral-800 shadow-lg
+        border-neutral-300/50 dark:border-neutral-800 shadow-lg
         transition-all duration-300
         ${
           isMenuOpen
@@ -117,7 +117,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
             </a>
           ))}
 
-          <div className="pt-3 mt-3 border-t border-neutral-200 dark:border-neutral-800">
+          <div className="pt-3 mt-3 border-t border-neutral-300/50 dark:border-neutral-800">
             <button
               onClick={toggleDarkMode}
               className="flex w-full items-center gap-2 rounded-xl px-4 py-2
